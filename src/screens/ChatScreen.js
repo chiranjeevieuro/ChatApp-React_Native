@@ -56,17 +56,7 @@ export default function ChatScreen({user,route}) {
       }, [])
 
 
-      const renderInputToolbar = (props) => (
-        <InputToolbar
-          {...props}
-          containerStyle={{
-            backgroundColor: 'black',
-            paddingTop: 6,
-          }}
-          primaryStyle={{ alignItems: 'center' }}
-        />
-      );
-
+  
    
 
       function renderSend(props) {
@@ -120,7 +110,12 @@ export default function ChatScreen({user,route}) {
         renderSend={renderSend}
         scrollToBottom
         onSend={text => onSend(text)}
-        renderInputToolbar = {renderInputToolbar}
+        renderInputToolbar={(props)=>{
+          return <InputToolbar {...props}
+           containerStyle={{borderTopWidth: 1.5, borderTopColor: 'green'}} 
+           textInputStyle={{ color: "black" }}
+           />
+      }}
         user={{
           _id: user.uid,
         }}
